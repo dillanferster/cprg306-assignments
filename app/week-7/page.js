@@ -1,11 +1,14 @@
 "use client";
 import { useState } from "react";
-import NewItem from "../week-6/new-item";
+import NewItem from "../week-7/new-item";
 import ItemList from "./item-list";
 import itemsdata from "./items.json";
+import MealIdeas from "./meal-ideas";
 
 export default function Page() {
   const [items, setItems] = useState(itemsdata);
+
+  const [ingredient, setIngredient] = useState("");
 
   const addItem = (item) => {
     setItems([...items, item]);
@@ -27,7 +30,12 @@ export default function Page() {
       </div>
 
       <NewItem onAddItem={addItem} />
-      <ItemList items={items} onRemoveItem={removeItem} />
+      <MealIdeas ingredient={ingredient} />
+      <ItemList
+        setIngredient={setIngredient}
+        items={items}
+        onRemoveItem={removeItem}
+      />
     </main>
   );
 }

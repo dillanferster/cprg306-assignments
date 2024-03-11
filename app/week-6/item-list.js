@@ -2,7 +2,7 @@
 import Item from "./item";
 import { useState, useEffect } from "react";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onRemoveItem }) {
   const [sortby, setSortBy] = useState("name");
 
   useEffect(() => {
@@ -19,6 +19,10 @@ export default function ItemList({ items }) {
 
     sortItems();
   }, [sortby]);
+
+  const handleRemove = (id) => {
+    onRemoveItem(id);
+  };
 
   return (
     <main className="flex-col justify-center align-middle content-center">
@@ -39,13 +43,20 @@ export default function ItemList({ items }) {
         </button>
       </div>
       {items.map((item) => (
-        <div>
+        <div className="flex flex-col border-b">
           <Item
             key={item.id}
             name={item.name}
             quantity={item.quantity}
             category={item.category}
           ></Item>
+          <button
+            className="bg-red-300 border-2 text-xs rounded-xl py-1 px-2  border-black w-16 self-center mr-40 mb-2"
+            type="button"
+            onClick={() => handleRemove(item.id)}
+          >
+            Remove
+          </button>
         </div>
       ))}
       ;
