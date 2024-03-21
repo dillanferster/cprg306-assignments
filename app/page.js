@@ -47,6 +47,12 @@ export default function Home() {
           <Link href="week-8">Week / 8</Link>
         </div>
       </div>
+
+      <div className="flex border-2 rounded-full border-black align-middle pl-3 w-60 h-10 bg-pink-200 mb-2">
+        <div className="flex align-middle self-center">
+          <Link href="week-10">Week / 10</Link>
+        </div>
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import NewItem from "../shopping-list/new-item";
+import NewItem from "./new-item";
 import ItemList from "./item-list";
 import itemsdata from "./items.json";
 import MealIdeas from "./meal-ideas";
